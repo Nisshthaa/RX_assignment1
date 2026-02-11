@@ -215,6 +215,10 @@ td {
   color: #436d7c;
   border-bottom: 1px solid #d4d6d9;
 }
+.settings {
+  position: relative;
+  top: 5px;
+}
 
 .btn-main {
   width: 134px;
