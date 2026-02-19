@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.navbar {
+nav {
   width: 20%;
   height: 100%;
   display: flex;
@@ -23,21 +23,19 @@
   padding-block: 5px;
 }
 
-.nav-1 {
-display: flex;
+.profile {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 35px;
   padding: 10px;
-
-  
 }
-
 
 .union-img {
   width: 168px;
   height: 31px;
 }
+
 .logo-name {
   width: 168px;
   height: 31px;
@@ -62,48 +60,66 @@ display: flex;
   gap: 10px;
 }
 
+#u-name {
+  font-family:
+    Spline Sans,
+    sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2a2a2a;
+}
+
+#u-user {
+  font-family:
+    Spline Sans,
+    sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #626d82;
+}
+
 .icon-dropdown {
   width: 19px;
   height: 19px;
   border-radius: 6px;
 }
+
 .nav-tabs {
   display: flex;
   flex-direction: column;
 
   gap: 22px;
 }
-.nav-tabs-img{
+
+.items-img {
   height: 24px;
   width: 24px;
 }
-.nav {
+
+.items {
   display: flex;
   gap: 5%;
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
-
   color: #626d82;
   padding-inline: 10px;
 }
 
-.nav-tabs a{
+.nav-tabs a {
   text-decoration: none;
 }
 
-.nav:hover{
- display: flex;
-  gap: 5%;
+.items:hover {
+  display: flex;
+
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
-background-color: #d3f7b5;
+  background-color: #d3f7b5;
   color: #626d82;
   padding: 10px;
   border-radius: 5px;
- 
-  
 }
 
 /* #nav-doc {
@@ -113,7 +129,7 @@ background-color: #d3f7b5;
   background-color: #d3f7b5;
   padding: 10px;
 } */
-.nav-2 {
+footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,7 +137,7 @@ background-color: #d3f7b5;
   padding: 10px;
 }
 
-#phone-img {
+#phone {
   width: 27px;
   height: 27px;
   border-width: 2.5px;
@@ -132,14 +148,15 @@ background-color: #d3f7b5;
   flex-direction: column;
   gap: 7px;
 }
-.nav-2 h1 {
+
+footer h1 {
   font-family: "Spline Sans", sans-serif;
   font-weight: 550;
   font-size: 28px;
   color: #1f4451;
 }
 
-.nav-2 p {
+footer p {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -151,6 +168,7 @@ background-color: #d3f7b5;
   border-radius: 5px;
   background-color: #1f4451;
 }
+
 #btn-contact p {
   font-family: "Spline Sans", sans-serif;
   font-weight: 600;
@@ -173,22 +191,19 @@ background-color: #d3f7b5;
   display: flex;
 }
 
-.tab-home {
+.item-home {
   font-family: "Spline Sans", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #436d7c;
 }
 
-
-
-
 #right-dropdown {
   width: 20px;
   height: 20px;
 }
 
-#tab-doc {
+#item-document {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -200,78 +215,81 @@ background-color: #d3f7b5;
   justify-content: space-between;
 }
 
-.inner-tab{
+.head-2 {
   display: flex;
   justify-content: space-between;
   gap: 8%;
 }
-.crud-btn{
+
+.crud-btn {
   display: flex;
   justify-content: space-between;
-  gap:3%;
+  gap: 3%;
 }
-#add-btn{
-  border: none;
-  color: white;
-  padding: 10px 22px;
-   background-color: rgb(113, 164, 87);
+
+#add-btn {
+  width: 100px;
+  height: 32px;
+  font-size: 12px;
   font-family: "Spline Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  border-radius: 5px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #b5bdcd;
+  background: #ffffff;
+  color: #626d82;
   cursor: pointer;
 }
 
-.delete-btn{
-  border: none;
-  color: white;
-  padding: 10px 22px;
-
-   background-color: rgb(247, 117, 117);
+.delete-btn {
+  width: 100px;
+  height: 32px;
+  font-size: 12px;
   font-family: "Spline Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  border-radius: 5px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #b5bdcd;
+  background: #ffffff;
+  color: #626d82;
   cursor: pointer;
 }
 
-
-.title_div{
- 
+.title_div {
   display: flex;
   flex-direction: column;
 }
 
-.title_input{
+.input-style {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 20px;
   height: 50%;
   gap: 10%;
-   border-radius: 5px;
-   border:none;
+  border-radius: 5px;
+  border: none;
 }
 
-.form_input{
+.form_input {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   padding: 5px 5px;
   border: 0.5px solid #b5bdcd;
 }
-.add_btn_form{
-   border: none;
-  color: white;
-  padding: 10px 22px;
-   background-color: rgb(113, 164, 87);
+
+.add_btn_form {
+  width: 100px;
+  height: 32px;
+  font-size: 12px;
   font-family: "Spline Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  border-radius: 5px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #b5bdcd;
+  background: #ffffff;
+  color: #626d82;
   cursor: pointer;
 }
 
-#title-head h1 {
+#head-1 h1 {
   font-family: Zin Display;
   font-weight: 400;
   font-size: 30px;
@@ -282,6 +300,7 @@ background-color: #d3f7b5;
   width: 70%;
   height: 37px;
 }
+
 #search-box {
   width: 100%;
   height: 100%;
@@ -296,52 +315,22 @@ background-color: #d3f7b5;
   right: 7px;
 }
 
-table {
-  /* width: 100%;
-  height: 50%; */
-  border-radius: 8px;
-  border-width: 0.5px;
-  background-color: #ffffff;
- 
-}
 
-thead {
-  text-align: left;
-}
 
-.table-td{
-font-family: "Spline Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-    padding: 15px;
-
-  color: #436d7c;
-  border-bottom: 1px solid #d4d6d9;
-}
-
-th{
-  font-family: "Spline Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  
-  color: #436d7c;
-  border-bottom: 1px solid #d4d6d9;
-}
 .settings {
   position: relative;
   top: 5px;
 }
 
-.status_btn{
-width: 139px;
-height: 23px;
-border-radius: 22px;
-padding: 2px 6px;
-border:none;
-background-color: #436D7C;
+.status_btn {
+  width: 139px;
+  height: 23px;
+  border-radius: 22px;
+  padding: 2px 6px;
+  border: none;
+  background-color: #436d7c;
 
-color: white;
-
+  color: white;
 }
 
 .btn-main {
@@ -354,46 +343,172 @@ color: white;
   background-color: #ffffff;
 }
 
-#doc-title{
+#doc-title {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-#doc-title-input{
+#doc-title-input {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
- 
+}
+table {
+  width: 90%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #ffffff;
+   border-radius: 8px;
 }
 
-.th-style{
-  text-align: left; 
-  color: #2A2A2A; 
+
+
+thead {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th, td {
+  padding: 16px 16px;   /* equal spacing */
+  text-align: left;
+  vertical-align: middle;
+}
+tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+.td-items {
+
+  font-family: "Spline Sans", sans-serif;
   font-weight: 600;
+  font-size: 16px;
+  color: #436d7c;
+
 }
 
-#form-div{
+.hidden {
+  display: none;
+}
+
+#main-form {
   height: 100vh;
   width: 100vw;
   border-radius: 10px;
-  display: none;  
 }
 
-#form{
+#form-div {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border: 1px solid #537bca;
-  width: 35%;
+  box-shadow: 10px;
+  width: 30%;
   height: 30%;
   top: 20%;
   left: 40%;
-  
-  padding: 10px;
+  border-radius: 10px;
+  padding: 20px;
   justify-content: center;
 
-position: absolute;
-
+  position: absolute;
 }
 
+form h1 {
+  font-family:
+    Spline Sans,
+    sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.signNow,
+.pending,
+.completed {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 22px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signNow {
+  background-color: #436d7c;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+}
+
+.pending {
+  background-color: #e8ecf1;
+  color: #626d82;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+}
+
+.completed {
+  color: #1f4451;
+  background-color: #d3f7b5;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+}
+
+.date-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  color: #626d82;
+}
+
+.btn-status {
+  width: 12px;
+  height: 20px;
+  border: 1px solid #b5bdcd;
+  border-radius: 5px;
+  border-width: 1px;
+  color: #626d82;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  text-align: center;
+}
+
+.settings-wrapper {
+  position: relative;
+}
+
+.settings-div {
+  display: none;
+  position: absolute;
+  right: 25;
+  top: 25px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.edit,
+.delete {
+  width: 100px;
+  height: 32px;
+  font-size: 12px;
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #b5bdcd;
+  background: #ffffff;
+  color: #626d82;
+  cursor: pointer;
+}

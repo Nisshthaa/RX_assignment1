@@ -1,156 +1,182 @@
 let add_btn = document.getElementById("add-btn");
-let form_data = document.getElementById("form-div");
-let main=document.querySelector(".main")
+let delete_btn = document.getElementById("delete_btn");
+let form_data = document.getElementById("main-form");
+let main = document.querySelector(".main");
+let tbody = document.querySelector("tbody");
+let settings = document.querySelector("settings");
+let settings_div = document.querySelector("settings-div");
 
-add_btn.addEventListener("click", function () {
-  if (form_data.style.display === "none") {
-    main.style.filter="blur(10px)"
-    form_data.style.display = "block";
-  } else {
-    form_data.style.display = "none";
-  }
+// add-items
+add_btn.addEventListener("click", function (e) {
+  main.style.filter = "blur(10px)";
+  form_data.style.display = "block";
 });
 
+document.addEventListener("click", function (e) {
 
+  // If form is open
+  if (form_data.style.display === "block") {
 
+    // Check if click is outside the form AND not the add button
+    if (!form_data.contains(e.target) && !add_btn.contains(e.target)) {
+      
+      form_data.style.display = "none";
+      main.style.filter = "none";
+    }
+  }
 
+});
 
+// delete-items
+delete_btn.addEventListener("click", function () {
+  form_data.style.display = "none";
+  main.style.filter = "none";
+});
 
-let title_doc = document.getElementById("title_doc");
-let status_label = document.getElementById("status_label");
-let add_btn_id = document.getElementById("add_btn_id");
-let tbody = document.getElementById("tbody");
+// form working
+let form = document.querySelector("form");
 
-add_btn_id.addEventListener("click", function (e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let row_id = document.createElement("tr");
-  tbody.appendChild(row_id);
-  // Check status
-  if (status_label.value === "Needs Signing") {
-    //checkbox
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    let check_id = document.createElement("td");
 
-    check_id.appendChild(checkbox);
-    row_id.appendChild(check_id);
+  let title = e.target.title.value;
+  let status = e.target.status.value;
 
-    //td title creation
-    let title_id = document.createElement("td");
-    title_id.innerText = title_doc.value;
-    title_id.classList.add("table-td");
-    row_id.appendChild(title_id);
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
 
-    //status button creation
-    let status_td = document.createElement("td");
+  if(edit_index!=null){
+    userData[edit_index]={
+    title: title,
+    status: status
+  };
+  editIndex = null;
+  }
+else{
+    userData.push({
+    title: title,
+    status: status,
+  });
+}
 
-    let status_btn = document.createElement("button");
-    status_btn.classList.add("status_btn");
-    status_btn.innerText = status_label.value; 
 
-    status_td.appendChild(status_btn);
-    row_id.appendChild(status_td);
+  localStorage.setItem("userDetails", JSON.stringify(userData));
 
-    //date creation
-    let date_id = document.createElement("td");
-    date_id.innerText = new Date().toLocaleDateString();
-    date_id.classList.add("table-td");
-    row_id.appendChild(date_id);
+  displayData();
+});
 
-    // //time creation
-    // let span_id=document.createElement("br")
-    // date_id.appendChild(span_id)
-    // let time_id=document.createElement("p")
-    // time_id.innerText=new Date().toLocaleTimeString()
-    // time_id.appendChild(time_id)
+// add button working
+add_btn_id.addEventListener("click", function () {
+  form_data.style.display = "none";
+  main.style.filter = "none";
+});
 
-    //button creation
-    let btn_id = document.createElement("td");
-    btn_id.innerText = "Sign Now";
-    btn_id.classList.add("table-td");
-    row_id.appendChild(btn_id);
-  } else if (status_label.value === "Pending") {
-    //checkbox
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    let check_id = document.createElement("td");
+// display items from local storage
+let displayData = () => {
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+  let finalData = "";
+  let date = new Date().toLocaleDateString();
+  let button = "";
+  let btn_class = "";
 
-    check_id.appendChild(checkbox);
-    row_id.appendChild(check_id);
+  userData.forEach((element, i) => {
+    if (element.status === "Needs Signing") {
+      button = "Sign Now";
+      btn_class = "signNow";
+    } else if (element.status === "Pending") {
+      button = "Preview";
+      btn_class = "pending";
+    } else {
+      button = "Download PDF";
+      btn_class = "completed";
+      btn_status = "completed";
+    }
 
-    //td title creation
-    let title_id = document.createElement("td");
-    title_id.innerText = title_doc.value;
-    title_id.classList.add("table-td");
-    row_id.appendChild(title_id);
+    finalData += `
+          <tr class="tr-style">
+          <td ><input type="checkbox"></td>
+          <td class="td-items">${element.title}</td>
+          <td class="td-items ${btn_class}">${element.status}</td>
+          <td class="td-items date-text">${date}</td>
+          <td class="btn-status">${button}</td>
+          <td class="settings-wrapper">
+            <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
+              alt="settings"
+              class="settings-icon">
+            <div class="settings-div">
+              <button class="edit" data-index="${i}">Edit</button>
+              <button class="delete" data-index="${i}">Delete</button>
+            </div>
+          </td>
+          </tr>
+          `;
 
-    //status button creation
-    let status_id = document.createElement("td");
-    status_id.textContent = status_label.value;
-    status_id.classList.add("table-td");
-    row_id.appendChild(status_id);
+    
+  }
 
-    //date creation
-    let date_id = document.createElement("td");
-    date_id.innerText = new Date().toLocaleDateString();
-    date_id.classList.add("table-td");
-    row_id.appendChild(date_id);
+);
+tbody.innerHTML = finalData;
+};
 
-    // //time creation
-    // let span_id=document.createElement("br")
-    // date_id.appendChild(span_id)
-    // let time_id=document.createElement("p")
-    // time_id.innerText=new Date().toLocaleTimeString()
-    // time_id.appendChild(time_id)
+displayData();
 
-    //button creation
-    let btn_id = document.createElement("td");
-    btn_id.innerText = "Sign Now";
-    btn_id.classList.add("table-td");
-    row_id.appendChild(btn_id);
-  } else {
-    //checkbox
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    let check_id = document.createElement("td");
 
-    check_id.appendChild(checkbox);
-    row_id.appendChild(check_id);
+document.addEventListener("click", function (e) {
+  //close all existing ones
+  if (e.target.classList.contains("settings-icon")) {
+    document.querySelectorAll(".settings-div").forEach((menu) => {
+      menu.style.display = "none";
+    });
 
-    //td title creation
-    let title_id = document.createElement("td");
-    title_id.innerText = title_doc.value;
-    title_id.classList.add("table-td");
+    // Open clicked one
+    let menu = e.target
+      .closest(".settings-wrapper")
+      .querySelector(".settings-div");
 
-    row_id.appendChild(title_id);
+    menu.style.display = "flex";
+  }
 
-    //status button creation
-    let status_td = document.createElement("td");
-
-    let status_btn = document.createElement("button");
-    status_btn.classList.add("status_btn");
-    status_btn.innerText = status_label.value; // "Sign Now", "Pending", etc.
-
-    status_td.appendChild(status_btn);
-    row_id.appendChild(status_td);
-
-    //date creation
-    let date_id = document.createElement("td");
-    date_id.innerText = new Date().toLocaleDateString();
-    date_id.classList.add("table-td");
-    row_id.appendChild(date_id);
-
-    // //time creation
-    // let span_id=document.createElement("br")
-    // date_id.appendChild(span_id)
-    // let time_id=document.createElement("p")
-    // time_id.innerText=new Date().toLocaleTimeString()
-    // time_id.appendChild(time_id)
-
-    //button creation
-    let btn_id = document.createElement("td");
-    btn_id.innerText = "Sign Now";
-    btn_id.classList.add("table-td");
-    row_id.appendChild(btn_id);
+  // If clicked anywhere else → close all
+  else {
+    document.querySelectorAll(".settings-div").forEach((menu) => {
+      menu.style.display = "none";
+    });
   }
 });
+
+
+//edit items
+let edit_index=null
+let title_doc=document.getElementById("title_doc")
+let status_id=document.getElementById("status_id")
+
+document.addEventListener("click",function(e){
+
+ if(e.target.classList.contains("edit")){
+  let index = e.target.getAttribute("data-index");
+  let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+
+  let item=userData[index]
+  title_doc.value=item.title
+  status_id.value=item.status
+  edit_index=index
+   main.style.filter = "blur(10px)";
+  form_data.style.display = "block";
+
+ } 
+})
+
+
+//delete items
+
+document.addEventListener("click",function(e){
+  if(e.target.classList.contains("delete")){
+    let index = e.target.getAttribute("data-index");
+    let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
+ // Remove that item
+    userData.splice(index, 1);
+
+    localStorage.setItem("userDetails", JSON.stringify(userData));
+    displayData();
+
+  }
+})
