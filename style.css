@@ -69,12 +69,9 @@ display: none;
 }
 
 .user-profile {
-  /* width: 80%; */
+ 
   display: flex;
   justify-content: space-between;
-
-  /* align-items: center; */
- 
   border-radius: 6px;
   border: 0.5px solid #b5bdcd;
   padding: 10px 10px;
@@ -88,8 +85,8 @@ display: none;
 
 #u-name {
   font-family: "Spline Sans", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   color: #2a2a2a;
 }
 
@@ -144,13 +141,7 @@ display: none;
   border-radius: 5px;
 }
 
-/* #nav-doc {
-  display: flex;
-  align-items: center;
-  
-  background-color: #d3f7b5;
-  padding: 10px;
-} */
+
 footer {
   display: flex;
   flex-direction: column;
@@ -251,27 +242,27 @@ footer p {
 
 #add-btn {
   width: 100px;
-  height: 32px;
-  font-size: 12px;
+  height: 42px;
+  font-size: 16px;
   font-family: "Spline Sans", sans-serif;
   font-weight: 500;
   border-radius: 6px;
-  border: 1px solid #b5bdcd;
-  background: #ffffff;
-  color: #626d82;
+  border: none;
+  background: #ed8c8c;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .delete-btn {
   width: 100px;
-  height: 32px;
-  font-size: 12px;
+  height: 42px;
+  font-size: 16px;
   font-family: "Spline Sans", sans-serif;
   font-weight: 500;
   border-radius: 6px;
-  border: 1px solid #b5bdcd;
-  background: #ffffff;
-  color: #626d82;
+  border: none;
+  background: #84cdac;
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -284,7 +275,7 @@ footer p {
   font-family: "Spline Sans", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  height: 50%;
+  height: 60%;
   gap: 10%;
   border-radius: 5px;
   border: none;
@@ -300,14 +291,14 @@ footer p {
 
 .add_btn_form {
   width: 100px;
-  height: 32px;
-  font-size: 12px;
+  height: 42px;
+  font-size: 16px;
   font-family: "Spline Sans", sans-serif;
   font-weight: 500;
   border-radius: 6px;
-  border: 1px solid #b5bdcd;
-  background: #ffffff;
-  color: #626d82;
+  border:none;
+  background: #ed8c8c;
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -319,7 +310,8 @@ footer p {
 
 .searchbox {
   position: relative;
-  width: 70%;
+  width: 100%;
+  border: 0.5px solid #b5bdcd;
   height: 37px;
 }
 
@@ -412,8 +404,7 @@ tr:last-child td {
   border-bottom: none;
 }
 .btn-status {
-  /* width: 139px; */
-  /* height: 12px; */
+  
   border: 1px solid #b5bdcd;
   border-radius: 5px;
   border-width: 1px;
@@ -468,9 +459,9 @@ form h1 {
   align-items: center;
   justify-content: center;
   width: 120px;
-  height: 28px;
+  height: 30px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
 }
@@ -508,22 +499,36 @@ form h1 {
   right: 25;
   top: 25px;
   background: white;
-  border: 1px solid #ddd;
+  border-radius: 6px;
   padding: 5px;
+  gap: 3px;
+  border: 1px solid #ddd;
   flex-direction: column;
   z-index: 100;
 }
 
-.edit,
-.delete {
+.edit {
   width: 100px;
   height: 32px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: "Spline Sans", sans-serif;
   font-weight: 500;
   border-radius: 6px;
-  border: 1px solid #b5bdcd;
-  background: #ffffff;
-  color: #626d82;
+  background: #ed8c8c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.delete{
+  width: 100px;
+  height: 32px;
+  font-size: 16px;
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 500;
+  border-radius: 6px;
+ background: #84cdac;
+  color: #ffffff;
+  border: none;
   cursor: pointer;
 }
