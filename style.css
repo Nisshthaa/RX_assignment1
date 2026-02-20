@@ -405,11 +405,12 @@ tr:last-child td {
   border-bottom: none;
 }
 .btn-status {
-  width: 500px;
+  width: 134px;
   border: 1px solid #b5bdcd;
   border-radius: 5px;
   border-width: 1px;
   color: #626d82;
+  background-color: #ffffff;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -419,6 +420,7 @@ tr:last-child td {
 }
 
 .td-btn-status{
+
   vertical-align: center;
 }
 

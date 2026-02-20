@@ -118,7 +118,7 @@ let displayData = () => {
           <td class="td-items">${element.title}</td>
           <td class="td-items "><span class=${btn_class}>${element.status}</span></td>
           <td class="td-items date-text">${date}<br>${time}</td>
-          <td class="td-btn-status"><span class="btn-status">${button}</span></td>
+          <td><button class="btn-status">${button}</button></td>
 
           <td class="settings-wrapper">
             <img src="./assets/more_vert_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.svg"
