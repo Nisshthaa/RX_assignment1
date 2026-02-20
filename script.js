@@ -6,6 +6,35 @@ let tbody = document.querySelector("tbody");
 let settings = document.querySelector("settings");
 let settings_div = document.querySelector("settings-div");
 
+//logout
+let logout = document.querySelector("#icon-dropdown")
+let logout_div = document.querySelector(".logout-div")
+logout.addEventListener("click", function (e) {
+  if (logout_div.style.display = "none") {
+    logout_div.style.display = "block";
+  }
+  else {
+    logout_div.style.display = "none"
+  }
+
+});
+document.addEventListener("click", function (e) {
+  // If form is open
+  if (logout_div.style.display === "block") {
+    // Check if click is outside the form AND not the add button
+    if (!logout_div.contains(e.target) && !logout.contains(e.target)) {
+      logout_div.style.display = "none";
+
+    }
+  }
+});
+
+// delete-items
+delete_btn.addEventListener("click", function () {
+  form_data.style.display = "none";
+  main.style.filter = "none";
+})
+
 // add-items
 add_btn.addEventListener("click", function (e) {
   main.style.filter = "blur(10px)";
@@ -90,7 +119,7 @@ let displayData = () => {
           <td ><input type="checkbox"></td>
           <td class="td-items">${element.title}</td>
           <td class="td-items ${btn_class}">${element.status}</td>
-          <td class=" date-text">${date}<br>${time}</td>
+          <td class="td-items date-text">${date}<br>${time}</td>
           <td class=" btn-status">${button}</td>
 
           <td class="settings-wrapper">
