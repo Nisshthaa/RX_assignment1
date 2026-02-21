@@ -72,13 +72,13 @@ statusSelect.addEventListener("change", function () {
 
 // form working
 let form = document.querySelector("form");
- let waitingInput=document.getElementById("waiting_num")
+let waitingInput = document.getElementById("waiting_num");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let title = e.target.title.value;
   let status = e.target.status.value;
-  let waitingPersons=waitingInput.value;
+  let waitingPersons = waitingInput.value;
 
   let userData = JSON.parse(localStorage.getItem("userDetails")) ?? [];
 
@@ -86,23 +86,22 @@ form.addEventListener("submit", function (e) {
     userData[edit_index] = {
       title: title,
       status: status,
-      waiting:status==="Pending"?waitingPersons:null
+      waiting: status === "Pending" ? waitingPersons : null,
     };
-   let editIndex = null;
+    let editIndex = null;
   } else {
     userData.push({
       title: title,
       status: status,
-      waiting:status==="Pending"?waitingPersons:null
+      waiting: status === "Pending" ? waitingPersons : null,
     });
   }
 
   localStorage.setItem("userDetails", JSON.stringify(userData));
 
   displayData();
-  form.reset()
+  form.reset();
 });
-
 
 // add button working
 add_btn_id.addEventListener("click", function () {
@@ -118,20 +117,17 @@ let displayData = () => {
   let time = new Date().toLocaleTimeString();
   let button = "";
   let btn_class = "";
-  
-  
 
   userData.forEach((element, i) => {
-    let waitingText="";
+    let waitingText = "";
     if (element.status === "Needs Signing") {
       button = "Sign Now";
       btn_class = "signNow";
     } else if (element.status === "Pending") {
       button = "Preview";
       btn_class = "pending";
-     
-      waitingText=`<br><p>Waiting for <span>${element.waiting} persons<</span>/p>`
-      
+
+      waitingText = `<p class="waiting">Waiting for <span class="waiting-person">${element.waiting} persons</span></p>`;
     } else {
       button = "Download PDF";
       btn_class = "completed";
